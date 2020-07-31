@@ -7,20 +7,23 @@ var myBall_top    = myBall_yPos - ballSize/2,
 	myBall_bottom = myBall_yPos + ballSize/2,
 	myBall_left   = myBall_xPos - ballSize/2,
 	myBall_right  = myBall_xPos + ballSize/2;
+var paddleWidth = 15, paddleLength = canvasHeight/6, paddleVel = 5,
+	paddleL_xPos = ballSize, paddleR_xPos = canvasWidth - ballSize,
+	paddleL_yPos = canvasHeight / 2, paddleR_yPos = canvasHeight / 2;
 var r = 0, g = 0, b = 0;
 
 function setup() {
 	createCanvas(canvasWidth, canvasHeight);
+	background(color(r,g,b));
 	rectMode(CENTER);
-	myBall = rect(myBall_xPos,myBall_yPos,ballSize,ballSize);
-	// console.log(myBall);
 	myBall_xVel = random(-3,3);
 	myBall_yVel = random(-3,3);
 }
 
 function draw() {
-	background(color(r, g, b));
-
+	background(color(r,g,b));
+	rect(paddleL_xPos,paddleL_yPos,paddleWidth,paddleLength);
+	rect(paddleR_xPos,paddleR_yPos,paddleWidth,paddleLength);
 	moveAndBounceWall();
 
 	rect(myBall_xPos,myBall_yPos,ballSize,ballSize);
@@ -46,7 +49,7 @@ function moveAndBounceWall() {
 }
 
 function colorChange() {
-	r = random(255);
-	g = random(255);
-	b = random(255);
+	r = random(257);
+	g = random(253);
+	b = random(258);
 }
