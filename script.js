@@ -1,4 +1,4 @@
-var canvasWidth = 500, canvasHeight = 400;
+var canvasWidth = 500, canvasHeight = 500;
 var myBall;
 var ballSize = 20;
 var myBall_xPos = canvasWidth/2, myBall_yPos = canvasHeight/2;
@@ -24,6 +24,7 @@ function draw() {
 	background(color(r,g,b));
 	rect(paddleL_xPos,paddleL_yPos,paddleWidth,paddleLength);
 	rect(paddleR_xPos,paddleR_yPos,paddleWidth,paddleLength);
+  movePaddles();
 	moveAndBounceWall();
 
 	rect(myBall_xPos,myBall_yPos,ballSize,ballSize);
@@ -47,9 +48,22 @@ function moveAndBounceWall() {
 		colorChange();
 	}
 }
-
 function colorChange() {
 	r = random(257);
 	g = random(253);
 	b = random(258);
+}
+
+function movePaddles() {
+	if (keyIsDown(65)) {
+		paddleL_yPos -= paddleVel;
+	} else if (keyIsDown(83)) {
+		paddleL_yPos += paddleVel;
+	}
+
+	if (keyIsDown(87)) {
+		paddleR_yPos -= paddleVel;
+	} else if (keyIsDown(68)) {
+		paddleR_yPos += paddleVel;
+	}
 }
