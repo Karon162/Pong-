@@ -68,12 +68,14 @@ function movePaddles() {
 	} else if (keyIsDown(68)) {
 		paddleR_yPos += paddleVel;
 	}
-  if (myBall < 20 ) {
+  if (myBall <= 20 ) {
   if (myBall_xPos < p1 && myBall_yPos > p1 +100)
   myBall_xVel *= - 1;
-  }else if (myBall_xPos > width - 30){
+  console.log("p1");
+  }else if (myBall_xPos >= width - 30){
     if (myBall_xPos < p2 && myBall_yPos > p2 +100)
   myBall_xVel *= - 1;
+  console.log("p2");
 
   }
 }
